@@ -8,8 +8,8 @@ public class CoroutineTimerScript : MonoBehaviour
     public GameObject circle;
     public TMP_Text timerText;
 
-    private int seconds = 1;
-    private int minutes = 0;
+    private int seconds;
+    private int minutes;
     private Coroutine timerCoroutine;
 
 
