@@ -59,6 +59,9 @@
     <Compile Include="Assets\Scripts\CoroutineTimerScript.cs" />
     <Compile Include="Assets\Scripts\CoroutineScript.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\BaseState.cs" />
+    <Compile Include="Assets\Scripts\GameState.cs" />
+    <Compile Include="Assets\Scripts\MenuState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

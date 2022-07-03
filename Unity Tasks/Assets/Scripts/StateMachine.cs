@@ -1,26 +1,30 @@
 using UnityEngine;
 
-public interface IState
-{
-    void DoThis();
-    void DoThat();
-}
 public class StateMachine : MonoBehaviour
 {
-    private IState currentState;
-
-    public void ChangeState(IState state)
+    private BaseState currentlyActiveState;
+    public void Start()
     {
-        currentState = state;
+        ChangeState(new MenuState(this));
     }
 
-    public void DoThis()
+    private void Update()
     {
-        currentState.DoThis();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ChangeState(new GameState(this));
+        }
     }
 
-    public void DoThat()
+    private void OnDestroy()
     {
-        currentState.DoThat();
+        currentlyActiveState?.DestroyState();
+    }
+
+    public void ChangeState(BaseState state)
+    {
+        currentlyActiveState?.DestroyState();
+        currentlyActiveState = state;
+        currentlyActiveState?.EnterState();
     }
 }
